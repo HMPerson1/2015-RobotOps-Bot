@@ -13,7 +13,21 @@ public class RobotMap {
         public static final int REAR_RIGHT_MOTOR = 0;
         public static final int REAR_LEFT_MOTOR = 0;
     }
+
     public static class Lobber1 {
-    	public static final int LOBBER_1_MOTOR = 0;
+        public static final int LOBBER_1_MOTOR = 0;
+    }
+
+    public static class Collector {
+        public static final int COLLECTOR_MOTOR = 0;
+    }
+
+    public static class CollectorPanels {
+        public static final int COLLECTOR_PANEL_UP_MOTOR = 0;
+        public static final int COLLECTOR_PANEL_DOWN_MOTOR = 0;
+    }
+
+    public static class CollectorMover {
+        public static final int COLLECTOR_MOVER_SOLENOID = 0;
     }
 }
