@@ -1,6 +1,6 @@
 package com.techhounds.subsystems;
 
-import com.techhounds.RobotMap;
+import static com.techhounds.RobotMap.Drive.*;
 
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -21,8 +21,7 @@ public class DriveSubsystem extends Subsystem {
     private DriveSubsystem() {
         super("DRIVE SUBSYSTEM");
 
-        robotDrive = new RobotDrive(RobotMap.FRONT_LEFT_MOTOR, RobotMap.REAR_LEFT_MOTOR,
-                                    RobotMap.FRONT_RIGHT_MOTOR, RobotMap.REAR_RIGHT_MOTOR);
+        robotDrive = new RobotDrive(FRONT_LEFT_MOTOR, REAR_LEFT_MOTOR, FRONT_RIGHT_MOTOR, REAR_RIGHT_MOTOR);
     }
 
     public void initDefaultCommand() {
