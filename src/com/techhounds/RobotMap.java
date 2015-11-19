@@ -13,7 +13,12 @@ public class RobotMap {
         public static final int REAR_RIGHT_MOTOR = 0;
         public static final int REAR_LEFT_MOTOR = 0;
     }
+    
     public static class Lobber1 {
     	public static final int LOBBER_1_MOTOR = 0;
+    }
+    
+    public static class Lobber2 {
+    	public static final int LOBBER_2_MOTOR = 0;
     }
 }
