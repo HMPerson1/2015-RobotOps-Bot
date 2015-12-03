@@ -34,4 +34,28 @@ public class OI {
     // Start the command when the button is released and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
+    public double getDriverRightXAxis() {
+        throw new UnsupportedOperationException();
+    }
+
+    public double getDriverRightYAxis() {
+        throw new UnsupportedOperationException();
+    }
+
+    public double getDriverLeftXAxis() {
+        throw new UnsupportedOperationException();
+    }
+
+    public double getDriverLeftYAxis() {
+        throw new UnsupportedOperationException();
+    }
+
+    private static OI instance;
+
+    public static OI getInstance() {
+        if (instance == null) {
+            instance = new OI();
+        }
+        return instance;
+    }
 }
