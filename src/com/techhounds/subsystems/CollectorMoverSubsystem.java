@@ -14,7 +14,13 @@ public class CollectorMoverSubsystem extends Subsystem {
 
     private Solenoid mover;
 
+    /**
+     * Creates and initializes a new {@link CollectorMoverSubsystem}.
+     * Private because singleton.
+     */
     private CollectorMoverSubsystem() {
+        super("COLLECTOR MOVER SUBSYSTEM");
+
         mover = new Solenoid(COLLECTOR_MOVER_SOLENOID);
     }
 

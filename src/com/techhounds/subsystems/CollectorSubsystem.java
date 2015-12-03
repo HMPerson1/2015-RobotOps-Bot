@@ -14,7 +14,13 @@ public class CollectorSubsystem extends Subsystem {
 
     private Victor motor;
 
+    /**
+     * Creates and initializes a new {@link CollectorSubsystem}.
+     * Private because singleton.
+     */
     private CollectorSubsystem() {
+        super("COLLECTOR SUBSYSTEM");
+
         motor = new Victor(COLLECTOR_MOTOR);
     }
 

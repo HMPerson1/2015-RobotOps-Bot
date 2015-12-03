@@ -46,7 +46,7 @@ public class DriveSubsystem extends Subsystem {
     /**
      * Returns the single instance of the {@link DriveSubsystem}, creating it if
      * necessary.
-     * 
+     *
      * @return the instance
      */
     public static DriveSubsystem getInstance() {

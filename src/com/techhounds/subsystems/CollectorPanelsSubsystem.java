@@ -15,7 +15,13 @@ public class CollectorPanelsSubsystem extends Subsystem {
     private Victor upMotor;
     private Victor downMotor;
 
+    /**
+     * Creates and initializes a new {@link CollectorPanelsSubsystem}.
+     * Private because singleton.
+     */
     private CollectorPanelsSubsystem() {
+        super("COLLECTOR PANELS SUBSYSTEM");
+
         upMotor = new Victor(COLLECTOR_PANEL_UP_MOTOR);
         downMotor = new Victor(COLLECTOR_PANEL_DOWN_MOTOR);
     }
