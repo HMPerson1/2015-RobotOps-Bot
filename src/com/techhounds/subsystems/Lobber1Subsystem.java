@@ -2,15 +2,12 @@ package com.techhounds.subsystems;
 
 import static com.techhounds.RobotMap.Lobber1.*;
 import com.techhounds.Robot;
-import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Lobber1Subsystem extends Subsystem {
 	
-	private static final double ON = 0.5, OFF = 0;
 	private boolean isEnabled;
-	private SpeedController speed;
 	
 	private static Lobber1Subsystem instance;
 	
@@ -34,10 +31,10 @@ public class Lobber1Subsystem extends Subsystem {
 	}
 	
 	public double getPower() {
-		return isEnabled ? speed.get() : 0;
+		return isEnabled ? Math.abs(lobber1.get()) : 0;
 	}
 	
 	public void setPower(double power) {
-		speed.set(Robot.checkRange(power, -1, 1));
+		lobber1.set(Robot.checkRange(power, -1, 1));
 	}
 }
