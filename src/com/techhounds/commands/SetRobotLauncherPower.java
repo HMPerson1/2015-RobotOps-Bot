@@ -1,49 +1,45 @@
 package com.techhounds.commands;
 
-import com.techhounds.OI;
-import com.techhounds.subsystems.DriveSubsystem;
+import com.techhounds.RobotMap;
+import com.techhounds.subsystems.LobberSubsystem;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * {@link Command} to drive the robot.
+ *
  */
-public class Drive extends Command {
-
-
-    private final DriveSubsystem drive; 
-
-    public Drive() {
-    	drive = DriveSubsystem.getInstance();
-        requires(drive);
+public class SetRobotLauncherPower extends Command {
+	LobberSubsystem lobber;
+	double power;
+    public SetRobotLauncherPower(double power) {
+    	lobber = LobberSubsystem.getInstance(RobotMap.Lobber.ROBOT_LOBBER);
+    	requires(lobber);
+    	this.power = power;
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	lobber.setPower(-power);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	SmartDashboard.putString("We are doing Stuf", "Yes");
-        drive.driveMecanum(OI.getDriverLeftXAxis(), OI.getDriverLeftYAxis(), OI.getDriverRightXAxis());
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        drive.stopMotors();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        end();
+    	end();
     }
-
-	
 }

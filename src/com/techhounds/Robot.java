@@ -5,8 +5,14 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
+import com.techhounds.commands.DisableAll;
+import com.techhounds.commands.Drive;
 import com.techhounds.commands.ExampleCommand;
+import com.techhounds.subsystems.CollectorSubsystem;
+import com.techhounds.subsystems.DriveSubsystem;
 import com.techhounds.subsystems.ExampleSubsystem;
+import com.techhounds.subsystems.LobberSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,13 +33,19 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-        oi = new OI();
+        
         // instantiate the command used for the autonomous period
+        DriveSubsystem.getInstance();
+        CollectorSubsystem.getInstance();
+        LobberSubsystem.getInstance(RobotMap.Lobber.HUMAN_LOBBER);
+        LobberSubsystem.getInstance(RobotMap.Lobber.ROBOT_LOBBER);
+        oi = new OI();
         autonomousCommand = new ExampleCommand();
     }
 
     public void disabledPeriodic() {
         Scheduler.getInstance().run();
+        
     }
 
     public void autonomousInit() {
@@ -54,6 +66,7 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+       
     }
 
     /**
@@ -61,6 +74,7 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit() {
+    	new DisableAll().start();
 
     }
 
@@ -69,6 +83,8 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        
+        
     }
 
     /**

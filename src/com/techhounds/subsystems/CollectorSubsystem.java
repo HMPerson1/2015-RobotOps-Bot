@@ -2,6 +2,8 @@ package com.techhounds.subsystems;
 
 import static com.techhounds.RobotMap.Collector.*;
 
+import com.techhounds.RobotMap;
+
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -30,6 +32,9 @@ public class CollectorSubsystem extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
+    }
+    public void setPower(double power){
+    	motor.set(-RobotMap.rangeCheck(power));
     }
 
     /**
