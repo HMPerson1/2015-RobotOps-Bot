@@ -67,7 +67,7 @@ public class OI {
 		
 		
 		
-		SmartDashboard.putData(LobberSubsystem.getInstance(true));
+		SmartDashboard.putData(LobberSubsystem.getInstance());
 	}
 	public static double getDriverRightXAxis() {
     	return driver.getRightStickX();

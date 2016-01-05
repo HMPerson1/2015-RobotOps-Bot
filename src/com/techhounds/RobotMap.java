@@ -17,10 +17,8 @@ public class RobotMap {
     }
 
     public static class Lobber {
-    	public static final boolean ROBOT_LOBBER = false;
-    	public static final boolean HUMAN_LOBBER = true;
-    	public static final int LOBBER_1_MOTOR = 7;//Human lobber
-    	public static final int LOBBER_2_MOTOR = 6;//Robot Lobber
+    	public static final int LOBBER = 7;//Human lobber
+    	public static final int SHOOTER = 6;//Robot Lobber
     }
 
     public static class Collector {

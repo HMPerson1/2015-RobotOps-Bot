@@ -15,11 +15,12 @@ public abstract class AbstractShooterSubsystem extends Subsystem {
 	private Talon motor;
 	private boolean inverted;
 	
+	
 	public AbstractShooterSubsystem(int port, boolean inverted){
 		motor = new Talon(port);
 		this.inverted = inverted;
 	}
-	public void setMotor(double power){
+	public void setPower(double power){
 		power = RobotMap.rangeCheck(power);
 		power *= (inverted ? -1 : 1);
 		motor.set(power);

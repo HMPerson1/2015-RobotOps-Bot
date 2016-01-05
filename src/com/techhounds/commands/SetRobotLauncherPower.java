@@ -12,7 +12,7 @@ public class SetRobotLauncherPower extends Command {
 	LobberSubsystem lobber;
 	double power;
     public SetRobotLauncherPower(double power) {
-    	lobber = LobberSubsystem.getInstance(RobotMap.Lobber.ROBOT_LOBBER);
+    	lobber = LobberSubsystem.getInstance();
     	requires(lobber);
     	this.power = power;
         // Use requires() here to declare subsystem dependencies

@@ -13,7 +13,7 @@ public class SetHumanLauncherPower extends Command {
 	LobberSubsystem launcher;
 	double power;
     public SetHumanLauncherPower(double power) {
-    	launcher = LobberSubsystem.getInstance(RobotMap.Lobber.HUMAN_LOBBER);
+    	launcher = LobberSubsystem.getInstance();
     	requires(launcher);
     	this.power = power;
     }

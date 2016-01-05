@@ -37,8 +37,6 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
         DriveSubsystem.getInstance();
         CollectorSubsystem.getInstance();
-        LobberSubsystem.getInstance(RobotMap.Lobber.HUMAN_LOBBER);
-        LobberSubsystem.getInstance(RobotMap.Lobber.ROBOT_LOBBER);
         oi = new OI();
         autonomousCommand = new ExampleCommand();
     }
