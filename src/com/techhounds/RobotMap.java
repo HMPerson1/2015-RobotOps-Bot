@@ -19,6 +19,7 @@ public class RobotMap {
     public static class Lobber {
     	public static final int LOBBER = 7;//Human lobber
     	public static final int SHOOTER = 6;//Robot Lobber
+    	public static final double LOBBER_SPEED = .5;//Lobber speed
     }
 
     public static class Collector {
@@ -39,7 +40,7 @@ public class RobotMap {
     	public static final boolean RAMP = false;
     	public static final boolean COLLECTOR = true;
         public static final int COLLECTOR_MOVER_SOLENOID = 0;
-        public static final int RAMP_MOVER_SOLENOID = 0;
+        public static final int RAMP_MOVER_SOLENOID = 1;
     }
     
     public static class Lobber2 {

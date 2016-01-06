@@ -2,6 +2,7 @@ package com.techhounds.commands;
 
 import com.techhounds.RobotMap;
 import com.techhounds.subsystems.LobberSubsystem;
+import com.techhounds.subsystems.ShooterSubsystem;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -9,10 +10,10 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class SetRobotLauncherPower extends Command {
-	LobberSubsystem lobber;
+	ShooterSubsystem lobber;
 	double power;
     public SetRobotLauncherPower(double power) {
-    	lobber = LobberSubsystem.getInstance();
+    	lobber = ShooterSubsystem.getInstance();
     	requires(lobber);
     	this.power = power;
         // Use requires() here to declare subsystem dependencies

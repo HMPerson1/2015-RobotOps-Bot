@@ -12,7 +12,9 @@ import com.techhounds.commands.SetHumanLauncherPower;
 import com.techhounds.commands.SetRampPosition;
 import com.techhounds.commands.SetRobotLauncherPower;
 import com.techhounds.commands.SetServos;
+import com.techhounds.subsystems.CollectorSolenoidSubsystem;
 import com.techhounds.subsystems.LobberSubsystem;
+import com.techhounds.subsystems.ShooterSubsystem;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -28,22 +30,36 @@ public class OI {
 	
 	public static ControllerMap driver;
 	
-	int turnOnHumanLobberInt = ControllerMap.A;
-	int turnOffHumanLobberInt = ControllerMap.Y;
-	int turnOnRobotLobberInt = ControllerMap.X;
-	int turnOffRobotLobberInt = ControllerMap.B;
+	
+	
 	int setPanelsUpInt = ControllerMap.UP;
 	int setPanelsDownInt = ControllerMap.DOWN;
 	int setRampUp = ControllerMap.RT;
 	int toggleCollector = ControllerMap.LT;
 	
-	Button turnOnHumanLobber;
-	Button turnOffHumanLobber;
-	Button turnOnRobotLobber;
-	Button turnOffRobotLobber;
+	
+	int collectorInButton = ControllerMap.B;
+	int collectorOutButton = ControllerMap.X;
+	int driverCollectorUpButton = ControllerMap.Y;
+	int driverCollectorDownButton = ControllerMap.A;
+	
+	
 	Button setPanelsUp;
 	Button setPanelsDown;
 	Button toggleCollect;
+	
+	Button incrementShootSpeed; //Port # 7
+	Button decrementShootSpeed;//Port # 8
+	Button servoUp;
+	Button ServoDown;
+	Button collectorUp;
+	Button collectorDown;
+	Button ramppUp;
+	Button rampDown;
+	Button driverCollectorUp;
+	Button driverCollectorDown;
+	Button collectorIn;
+	Button collectorOut;
 	
 	public void initButtons(){
 		
@@ -52,6 +68,22 @@ public class OI {
 		toggleCollect.whenPressed(new SetCollectorPower(0.3));
 		toggleCollect.whenReleased(new SetCollectorPower(0.0));
 		toggleCollect.whenReleased(new SetServos(RobotMap.UP));
+		
+		driverCollectorUp = driver.createButton(driverCollectorUpButton);
+		driverCollectorUp.whenPressed(new SetCollectorPosition(RobotMap.UP));
+		
+		driverCollectorDown = driver.createButton(driverCollectorDownButton);
+		driverCollectorDown.whenPressed(new SetCollectorPosition(RobotMap.DOWN) );
+		
+		collectorIn = driver.createButton(collectorInButton);
+		collectorIn.whenPressed(new SetCollectorPower(.3));
+		
+		collectorOut = driver.createButton(collectorOutButton);
+		collectorIn.whenPressed(new SetCollectorPower(-.3));
+		
+		
+		
+		
 	}
 	
 	
@@ -64,10 +96,10 @@ public class OI {
 		SmartDashboard.putData("Set Collector", new SetCollectorPower(-.3));
 		SmartDashboard.putData("Ramp Up", new SetRampPosition(RobotMap.UP));
 		SmartDashboard.putData("Collector Up", new SetCollectorPosition(RobotMap.UP));
+		SmartDashboard.putData("Collector", CollectorSolenoidSubsystem.getInstance());
 		
-		
-		
-		SmartDashboard.putData(LobberSubsystem.getInstance());
+		SmartDashboard.putData("Lobber", LobberSubsystem.getInstance());
+		SmartDashboard.putData("Shooter", ShooterSubsystem.getInstance());
 	}
 	public static double getDriverRightXAxis() {
     	return driver.getRightStickX();
